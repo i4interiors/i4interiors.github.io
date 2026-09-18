@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery — i4interiors</title>
+<meta name="description" content="Selected residential and commercial interiors by i4interiors — living spaces, bedrooms, kitchens, bathrooms and hospitality projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="wordmark" href="index.html">i<span>4</span>interiors</a>
+
+    <button class="navtoggle" id="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="tabs">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M0 1h22M0 7h22M0 13h22"/>
+      </svg>
+    </button>
+
+    <nav class="tabs" id="tabs">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html" aria-current="page">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <span class="tabs__cta"><a href="contact.html">Book a consult</a></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="pagehead">
+    <div class="wrap">
+      <p class="eyebrow">Portfolio</p>
+      <h1 class="h-xl">Gallery</h1>
+      <p class="lede">A selection of residential and commercial interiors. Tap any image to view it full size.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+
+      <div class="filters" id="filters">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="living" aria-pressed="false">Living</button>
+        <button type="button" data-filter="bedroom" aria-pressed="false">Bedrooms</button>
+        <button type="button" data-filter="dining" aria-pressed="false">Kitchen &amp; Dining</button>
+        <button type="button" data-filter="bath" aria-pressed="false">Bathrooms</button>
+        <button type="button" data-filter="commercial" aria-pressed="false">Commercial</button>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/hero-living.jpg"><img src="../../assets/site/hero-living-800.jpg" alt="Contemporary living room with marble feature wall and soft neutral seating" loading="lazy"></button></figure>
+        <figure data-cat="bedroom"><button class="shot" type="button" data-full="../../assets/site/hero-bedroom.jpg"><img src="../../assets/site/hero-bedroom-800.jpg" alt="Principal bedroom with statement chandelier and full-height drapery" loading="lazy"></button></figure>
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/living-brass.jpg"><img src="../../assets/site/living-brass-800.jpg" alt="Living room with brass screen detail and low modular seating" loading="lazy"></button></figure>
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/stair-chandelier.jpg"><img src="../../assets/site/stair-chandelier-800.jpg" alt="Curved staircase with cascading sculptural chandelier" loading="lazy"></button></figure>
+        <figure data-cat="dining"><button class="shot" type="button" data-full="../../assets/site/kitchen-island.jpg"><img src="../../assets/site/kitchen-island-800.jpg" alt="Walnut kitchen with stone waterfall island" loading="lazy"></button></figure>
+        <figure data-cat="dining"><button class="shot" type="button" data-full="../../assets/site/dining-garden.jpg"><img src="../../assets/site/dining-garden-800.jpg" alt="Bright open-plan dining space opening onto a garden" loading="lazy"></button></figure>
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/living-warm.jpg"><img src="../../assets/site/living-warm-800.jpg" alt="Warm contemporary living room with layered neutral textures" loading="lazy"></button></figure>
+        <figure data-cat="bedroom"><button class="shot" type="button" data-full="../../assets/site/bedroom-arch.jpg"><img src="../../assets/site/bedroom-arch-800.jpg" alt="Soft white bedroom with arched detailing and integrated lighting" loading="lazy"></button></figure>
+        <figure data-cat="bath"><button class="shot" type="button" data-full="../../assets/site/bath-arch.jpg"><img src="../../assets/site/bath-arch-800.jpg" alt="Arched ensuite with freestanding tub and stone vanity" loading="lazy"></button></figure>
+        <figure data-cat="commercial"><button class="shot" type="button" data-full="../../assets/site/theatre.jpg"><img src="../../assets/site/theatre-800.jpg" alt="Private home cinema with tiered seating and framed artwork" loading="lazy"></button></figure>
+        <figure data-cat="bedroom"><button class="shot" type="button" data-full="../../assets/site/bedroom-beige.jpg"><img src="../../assets/site/bedroom-beige-800.jpg" alt="Calm beige bedroom with upholstered headboard and pendant lighting" loading="lazy"></button></figure>
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/living-window.jpg"><img src="../../assets/site/living-window-800.jpg" alt="Living room with full-height windows and sculptural pendant" loading="lazy"></button></figure>
+        <figure data-cat="bedroom"><button class="shot" type="button" data-full="../../assets/site/bedroom-gallery.jpg"><img src="../../assets/site/bedroom-gallery-800.jpg" alt="Warm bedroom with framed gallery wall and built-in joinery" loading="lazy"></button></figure>
+        <figure data-cat="commercial"><button class="shot" type="button" data-full="../../assets/site/bar-gold.jpg"><img src="../../assets/site/bar-gold-800.jpg" alt="Hospitality bar interior in dark timber and brushed brass" loading="lazy"></button></figure>
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/living-grid.jpg"><img src="../../assets/site/living-grid-800.jpg" alt="Living room framed by a brass grid screen and deep sectional" loading="lazy"></button></figure>
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/living-fireplace.jpg"><img src="../../assets/site/living-fireplace-800.jpg" alt="Classic living room with marble fireplace and crystal chandelier" loading="lazy"></button></figure>
+        <figure data-cat="living"><button class="shot" type="button" data-full="../../assets/site/living-gold.jpg"><img src="../../assets/site/living-gold-800.jpg" alt="Formal living room with gold chandelier and pale upholstery" loading="lazy"></button></figure>
+        <figure data-cat="dining"><button class="shot" type="button" data-full="../../assets/site/dining-luxe.jpg"><img src="../../assets/site/dining-luxe-800.jpg" alt="Formal dining room with brass screen and candlelight" loading="lazy"></button></figure>
+        <figure data-cat="commercial"><button class="shot" type="button" data-full="../../assets/site/dining-green.jpg"><img src="../../assets/site/dining-green-800.jpg" alt="Commercial dining area framed by a living green wall" loading="lazy"></button></figure>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <p class="eyebrow">Get started</p>
+      <h2 class="h-lg">Something here feel like yours?</h2>
+      <p>Tell me about your space and we'll take it from there.</p>
+      <a class="btn btn--light" href="contact.html">Book a design consult</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span>&copy; 2026 i4interiors — Interior Design, Edmonton AB</span>
+    <span class="footer__links">
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:Shwaihatjuanna@gmail.com">Email</a>
+    </span>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>
