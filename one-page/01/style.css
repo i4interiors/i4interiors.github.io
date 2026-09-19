@@ -232,7 +232,7 @@ a { color: inherit; }
 .work-grid figure { margin: 0; overflow: hidden; }
 .work-grid img {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 3/2;
   object-fit: cover;
   transition: transform .6s cubic-bezier(.2,.7,.3,1);
 }
