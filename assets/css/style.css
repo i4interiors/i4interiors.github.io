@@ -172,7 +172,7 @@ a { color: inherit; }
   max-width: 24ch;
   font-size: clamp(26px, 4.6vw, 44px);
 }
-.statement blockquote em { font-style: italic; color: var(--brass); }
+.statement blockquote em { font-style: normal; color: var(--brass); }
 
 /* ---------- about ---------- */
 .about {

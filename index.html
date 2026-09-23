@@ -3,260 +3,331 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>i4interiors — Website Layouts</title>
-<meta name="description" content="Layout and structure options for the i4interiors website.">
-<meta name="robots" content="noindex">
+<title>i4interiors — Interior Design by Juanna Shwaihat | Edmonton</title>
+<meta name="description" content="i4interiors is an Edmonton interior design studio led by Juanna Shwaihat, creating luxurious, one-of-a-kind residential and commercial spaces.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bone:  #f4f1ec;
-    --paper: #ffffff;
-    --ink:   #14120f;
-    --muted: #726c64;
-    --line:  #e2dbd2;
-    --brass: #a8845c;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
-  }
-
-  body {
-    margin: 0;
-    background: var(--bone);
-    color: var(--ink);
-    font-family: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img { max-width: 100%; display: block; }
-
-  .wrap { max-width: 1120px; margin-inline: auto; padding-inline: 24px; }
-
-  .serif { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
-
-  /* ---- masthead ---- */
-  .masthead {
-    background: var(--ink);
-    color: #f4f1ec;
-    text-align: center;
-    padding: clamp(56px, 10vw, 92px) 0 clamp(50px, 8vw, 80px);
-  }
-  .mark {
-    font-size: clamp(28px, 4.2vw, 42px);
-    letter-spacing: .2em;
-    font-weight: 300;
-    margin: 0 0 30px;
-  }
-  .mark span { color: var(--brass); }
-
-  .masthead h1 {
-    font-size: clamp(32px, 6vw, 54px);
-    line-height: 1.12;
-    font-weight: 300;
-    margin: 0 0 20px;
-  }
-  .masthead p {
-    color: rgba(244,241,236,.72);
-    max-width: 52ch;
-    margin: 0 auto;
-  }
-
-  /* ---- layout group ---- */
-  .layout { padding: clamp(44px, 7vw, 72px) 0; }
-  .layout + .layout { border-top: 1px solid var(--line); }
-
-  .layout__head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px 28px;
-    flex-wrap: wrap;
-    margin-bottom: 34px;
-  }
-  .layout__title { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-  .layout__letter {
-    font-size: 11px;
-    letter-spacing: .28em;
-    text-transform: uppercase;
-    color: var(--brass);
-  }
-  .layout__head h2 { font-size: clamp(25px, 3.4vw, 34px); margin: 0; font-weight: 300; }
-  .layout__head p { margin: 0; color: var(--muted); font-size: 15px; max-width: 46ch; }
-
-  /* ---- option cards ---- */
-  /* One option per row, so a single option still fills the width
-     and extra options stack as a legible list. */
-  .options {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .opt {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    display: grid;
-    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow .3s ease, transform .3s ease;
-  }
-  .opt:hover {
-    box-shadow: 0 18px 42px rgba(20,18,15,.10);
-    transform: translateY(-3px);
-  }
-  .opt__img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
-  .opt__body { padding: 32px 36px 34px; display: flex; flex-direction: column; }
-
-  .opt__no {
-    font-size: 11px;
-    letter-spacing: .26em;
-    text-transform: uppercase;
-    color: var(--brass);
-    margin: 0 0 10px;
-  }
-  .opt h3 { font-size: clamp(21px, 2.6vw, 27px); margin: 0 0 12px; font-weight: 300; }
-  .opt > .opt__body > p { color: var(--muted); margin: 0 0 20px; font-size: 15px; }
-
-  .opt ul {
-    list-style: none;
-    margin: 0 0 26px;
-    padding: 0;
-    border-top: 1px solid var(--line);
-  }
-  .opt li {
-    border-bottom: 1px solid var(--line);
-    padding: 10px 0 10px 22px;
-    font-size: 14px;
-    color: var(--muted);
-    position: relative;
-  }
-  .opt li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 20px;
-    width: 10px;
-    height: 1px;
-    background: var(--brass);
-  }
-
-  .opt .spacer { flex: 1; }
-
-  .opt__go {
-    align-self: flex-start;
-    padding: 13px 30px;
-    background: var(--ink);
-    color: var(--paper);
-    border: 1px solid var(--ink);
-    font-size: 11px;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    transition: background .25s, color .25s;
-  }
-  .opt:hover .opt__go { background: transparent; color: var(--ink); }
-
-  /* ---- note ---- */
-  .note {
-    border-top: 1px solid var(--line);
-    padding: 32px 0 60px;
-    color: var(--muted);
-    font-size: 14px;
-  }
-  .note strong { color: var(--ink); font-weight: 400; }
-  .note a { color: var(--ink); }
-
-  @media (max-width: 800px) {
-    .opt { grid-template-columns: 1fr; }
-    .opt__img { min-height: 0; aspect-ratio: 16/10; }
-    .opt__body { padding: 26px 26px 30px; }
-    .layout__head { margin-bottom: 26px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="masthead">
-  <div class="wrap">
-    <p class="mark">i<span>4</span>interiors</p>
-    <h1 class="serif">Website layouts</h1>
-    <p>Two structural approaches to the i4interiors website. Both share the same brand, typography and photography — what differs is how the content is organised and navigated. Each layout is responsive across mobile, tablet and desktop.</p>
+<div class="topbar">
+  <a href="#contact">Now booking 2026 projects — schedule a design consult</a>
+</div>
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="wordmark" href="#top">i<span>4</span>interiors</a>
+
+    <button class="navtoggle" id="navtoggle" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M0 1h22M0 7h22M0 13h22"/>
+      </svg>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
-
-  <!-- ============ LAYOUT A ============ -->
-  <section class="layout">
-    <div class="layout__head">
-      <div class="layout__title">
-        <span class="layout__letter">Layout A</span>
-        <h2 class="serif">One page</h2>
-      </div>
-      <p>A single continuous page. The studio statement, services and portfolio unfold in one uninterrupted scroll.</p>
-    </div>
-
-    <div class="options">
-      <a class="opt" href="one-page/01/">
-        <img class="opt__img" src="assets/images/web/r1-800.jpg" alt="Warm residential living room with oak joinery and layered neutral textures" loading="lazy">
-        <div class="opt__body">
-          <p class="opt__no">Option 1</p>
-          <h3 class="serif">Editorial</h3>
-          <p>Opens on a full-screen interior, then moves in sequence through the studio statement, designer profile, services, portfolio and enquiry.</p>
-          <ul>
-            <li>Serif display type with generous white space</li>
-            <li>Anchored menu linking to each section</li>
-            <li>Portfolio presented as a nine-image grid</li>
-          </ul>
-          <div class="spacer"></div>
-          <span class="opt__go">View Option</span>
-        </div>
-      </a>
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <img class="hero__bg" src="assets/images/web/r7.jpg" alt="Living room with a full-height marble feature wall and pale sculptural seating">
+    <div class="hero__inner">
+      <h1 class="display">Luxurious interiors<br>never off the shelf</h1>
+      <p>Residential and commercial interior design by Juanna Shwaihat — art, fashion and architecture brought into one room at a time.</p>
+      <a class="btn btn--light" href="#contact">Book a consult</a>
     </div>
   </section>
 
-  <!-- ============ LAYOUT B ============ -->
-  <section class="layout">
-    <div class="layout__head">
-      <div class="layout__title">
-        <span class="layout__letter">Layout B</span>
-        <h2 class="serif">Multi-page</h2>
-      </div>
-      <p>Dedicated pages behind a persistent navigation bar, with the portfolio given its own gallery.</p>
-    </div>
-
-    <div class="options">
-      <a class="opt" href="multi-page/01/">
-        <img class="opt__img" src="assets/images/web/r10-800.jpg" alt="Curved staircase above a chequerboard marble floor" loading="lazy">
-        <div class="opt__body">
-          <p class="opt__no">Option 1</p>
-          <h3 class="serif">Studio</h3>
-          <p>A cleaner, more architectural treatment, with the portfolio promoted to a dedicated gallery page filterable by room type.</p>
-          <ul>
-            <li>Navigation tabs for Home, About, Gallery and Contact</li>
-            <li>Filterable gallery with full-size image viewer</li>
-            <li>Contact page with full studio details</li>
-          </ul>
-          <div class="spacer"></div>
-          <span class="opt__go">View Option</span>
-        </div>
-      </a>
+  <!-- ============ STATEMENT ============ -->
+  <section class="statement">
+    <div class="wrap">
+      <p class="eyebrow">i4interiors</p>
+      <blockquote class="display">
+        In a world full of cookie-cutter houses, <em>we design the opposite</em>
+      </blockquote>
     </div>
   </section>
 
-  <div class="note">
-    <p><strong>About these pages.</strong> Both layouts work equally well on a phone, a tablet or a computer — the photographs and text rearrange themselves to suit whatever screen they are viewed on. The images are prepared in two sizes so pages stay quick to open on mobile data, and each one is described in words for visitors who use a screen reader.</p>
-    <p>Every contact link and button opens a new email addressed to <a href="mailto:Shwaihatjuanna@gmail.com">Shwaihatjuanna@gmail.com</a>.</p>
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="wrap about__grid">
+      <div class="about__figure">
+        <img src="assets/images/web/portrait.jpg" alt="Juanna Shwaihat, founder and principal designer of i4interiors" loading="lazy">
+      </div>
+      <div>
+        <p class="eyebrow">Meet the designer</p>
+        <h2 class="display">Juanna Shwaihat</h2>
+        <p>In a world full of cookie-cutter houses, I launched i4interiors with the intention of creating luxurious and one-of-a-kind designs.</p>
+        <p>My passion for art, fashion and interior design shines through every project I do.</p>
+        <p>With a degree in architecture and international interior design experience, clients can expect nothing but perfection.</p>
+        <a class="btn" href="#contact">Work with me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <p class="eyebrow">What we do</p>
+      <h2 class="display">Services</h2>
+      <p class="lede services__lede">Full-service design for homes and businesses — from first concept through to the final styled room.</p>
+
+      <div class="svc-grid">
+        <article class="svc">
+          <button class="svc__shot" type="button" data-zoom aria-label="View full image">
+            <img src="assets/images/web/r3-800.jpg" alt="Double-height living space with a floating staircase and full-height glazing" loading="lazy">
+          </button>
+          <div class="svc__body">
+            <h3>Residential Design</h3>
+            <p>Single rooms to whole-home renovations and new builds — space planning, finishes, millwork and lighting resolved as one cohesive scheme.</p>
+          </div>
+        </article>
+
+        <article class="svc">
+          <button class="svc__shot" type="button" data-zoom aria-label="View full image">
+            <img src="assets/images/web/c4-800.jpg" alt="Restaurant interior with a brass-framed bar and dark timber panelling" loading="lazy">
+          </button>
+          <div class="svc__body">
+            <h3>Commercial Design</h3>
+            <p>Restaurants, retail, offices and hospitality. Interiors that hold up to daily use and still make your brand memorable.</p>
+          </div>
+        </article>
+
+        <article class="svc">
+          <button class="svc__shot" type="button" data-zoom aria-label="View full image">
+            <img src="assets/images/services/img2.JPG" alt="Styled living room with curated furniture, art and accessories in place" loading="lazy">
+          </button>
+          <div class="svc__body">
+            <h3>Furniture Selection &amp; Staging</h3>
+            <p>Sourcing of furniture, rugs, lighting and art — then styled and placed on site, whether you are moving in or preparing to sell.</p>
+          </div>
+        </article>
+
+        <article class="svc">
+          <button class="svc__shot" type="button" data-zoom aria-label="View full image">
+            <img src="assets/images/services/img1.JPG" alt="Design consultation with material samples, finishes and floor plans laid out" loading="lazy">
+          </button>
+          <div class="svc__body">
+            <h3>Design Consult</h3>
+            <p>A focused session for clients who want direction, not a full project — layout, palette and a clear plan you can carry out yourself.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PORTFOLIO ============ -->
+  <section class="work" id="gallery">
+    <div class="wrap">
+      <div class="work__head">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="display">Gallery</h2>
+      </div>
+
+      <div class="work-grid">
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/r9-800.jpg" alt="Principal bedroom with a brass chandelier and upholstered headboards" loading="lazy"></button></figure>
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/r19-800.jpg" alt="Living room framed by a brass grid screen and deep grey sectional" loading="lazy"></button></figure>
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/b4-800.jpg" alt="Bathroom with an arched mirror, stone vanity and freestanding tub" loading="lazy"></button></figure>
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/r10-800.jpg" alt="Curved staircase above a chequerboard marble floor" loading="lazy"></button></figure>
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/r12-800.jpg" alt="Formal dining room beneath a brass-framed pendant installation" loading="lazy"></button></figure>
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/b8-800.jpg" alt="Arched bathroom with a freestanding tub and full-height stone" loading="lazy"></button></figure>
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/r17-800.jpg" alt="Bright living room with curved seating and a circular pendant" loading="lazy"></button></figure>
+        <figure><button class="work__shot" type="button" data-zoom aria-label="View full image"><img src="assets/images/web/c2-800.jpg" alt="Commercial dining area framed by a living green wall" loading="lazy"></button></figure>
+      </div>
+
+      <div class="work__more">
+        <a class="btn" href="https://www.instagram.com/i4interiors/" target="_blank" rel="noopener">See more on Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow" style="color:rgba(241,236,229,.55)">Get in touch</p>
+      <h2 class="display">Let's design something<br>one of a kind</h2>
+      <p>Tell me about your space, your timeline and how you want it to feel. I'll come back to you with the next step.</p>
+
+      <div class="contact__lines">
+        <span><a href="#contactcard" data-contact>Shwaihatjuanna@gmail.com</a></span>
+        <span>Edmonton, Alberta, Canada</span>
+      </div>
+
+      <button class="btn btn--light" type="button" data-contact>Start an enquiry</button>
+    </div>
+  </section>
+
+<!-- ============ IMAGE LIGHTBOX ============ -->
+<dialog class="lightbox" id="lightbox" aria-label="Full image">
+  <button class="lightbox__close" type="button" data-zoom-close aria-label="Close">&times;</button>
+  <figure class="lightbox__figure">
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-cap"></figcaption>
+  </figure>
+</dialog>
+
+<!-- ============ CONTACT CARD ============ -->
+<dialog class="card" id="contactcard" aria-labelledby="contactcard-title">
+  <div class="card__inner">
+    <button class="card__close" type="button" data-contact-close aria-label="Close">&times;</button>
+
+    <h2 class="display" id="contactcard-title">Contact the studio</h2>
+    <p>Send a note about your space, your timeline and how you want it to feel.</p>
+
+    <div class="card__rows">
+      <div class="card__row">
+        <span class="card__label">Email</span>
+        <span class="card__value" id="contact-email">Shwaihatjuanna@gmail.com</span>
+        <button class="card__copy" type="button" data-copy="#contact-email">Copy</button>
+      </div>
+      <div class="card__row">
+        <span class="card__label">Instagram</span>
+        <a class="card__value" href="https://www.instagram.com/i4interiors/" target="_blank" rel="noopener">@i4interiors</a>
+      </div>
+      <div class="card__row">
+        <span class="card__label">Studio</span>
+        <span class="card__value">Edmonton, Alberta, Canada</span>
+      </div>
+    </div>
   </div>
+</dialog>
 
 </main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>&copy; 2026 i4interiors</span>
+    <span>Interior Design — Edmonton, AB</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('navtoggle');
+    var nav = document.getElementById('nav');
+
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Close the mobile menu after tapping a section link.
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+
+  // Image lightbox. The service cards crop their photos to keep the row
+  // even, so a click opens the picture uncropped.
+  (function () {
+    var box = document.getElementById('lightbox');
+    if (!box) return;
+    var shot = document.getElementById('lightbox-img');
+    var cap = document.getElementById('lightbox-cap');
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-zoom]'), function (trigger) {
+      trigger.addEventListener('click', function () {
+        var source = trigger.querySelector('img');
+        if (!source) return;
+        var thumb = source.currentSrc || source.src;
+        // The grids load -800 thumbs; the untouched original sits beside them.
+        var full = thumb.replace(/-800(\.[a-z]+)$/i, '$1');
+        shot.onerror = function () { shot.onerror = null; shot.src = thumb; };
+        shot.src = full;
+        shot.alt = source.alt;
+        cap.textContent = source.alt;
+        if (box.showModal) box.showModal();
+        else box.setAttribute('open', '');
+      });
+    });
+
+    function close() {
+      if (box.close) box.close();
+      else box.removeAttribute('open');
+    }
+
+    box.addEventListener('click', function (e) {
+      // Anything but the photo itself closes — backdrop, margin or the button.
+      if (e.target !== shot) close();
+    });
+  })();
+
+  // Contact card. Keeps the studio details on the page instead of
+  // handing the visitor off to a mail client.
+  (function () {
+    var card = document.getElementById('contactcard');
+    if (!card) return;
+
+    function open() {
+      if (card.showModal) card.showModal();
+      else card.setAttribute('open', '');
+    }
+    function close() {
+      if (card.close) card.close();
+      else card.removeAttribute('open');
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-contact]'), function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        open();
+      });
+    });
+
+    card.addEventListener('click', function (e) {
+      // A click that lands on the dialog itself came from the backdrop.
+      if (e.target === card || e.target.hasAttribute('data-contact-close')) close();
+    });
+
+    // Copy the address so it can be pasted wherever the visitor writes mail.
+    Array.prototype.forEach.call(card.querySelectorAll('[data-copy]'), function (btn) {
+      btn.addEventListener('click', function () {
+        var source = card.querySelector(btn.getAttribute('data-copy'));
+        if (!source) return;
+        var text = source.textContent.trim();
+
+        function done() {
+          var label = btn.textContent;
+          btn.textContent = 'Copied';
+          btn.classList.add('is-done');
+          setTimeout(function () {
+            btn.textContent = label;
+            btn.classList.remove('is-done');
+          }, 1800);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } else {
+          fallback();
+        }
+
+        function fallback() {
+          var field = document.createElement('textarea');
+          field.value = text;
+          field.setAttribute('readonly', '');
+          field.style.position = 'fixed';
+          field.style.opacity = '0';
+          document.body.appendChild(field);
+          field.select();
+          try { document.execCommand('copy'); done(); } catch (err) { /* selection stands */ }
+          document.body.removeChild(field);
+        }
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
