@@ -36,13 +36,12 @@
 </header>
 
 <main id="top">
-
   <!-- ============ HERO ============ -->
   <section class="hero">
     <img class="hero__bg" src="../../assets/images/web/r7.jpg" alt="Living room with a full-height marble feature wall and pale sculptural seating">
     <div class="hero__inner">
-      <h1 class="display">Spaces made<br>one of a kind</h1>
-      <p>Luxury residential and commercial interior design, based in Edmonton, Alberta.</p>
+      <h1 class="display">Luxurious interiors<br>never off the shelf</h1>
+      <p>Residential and commercial interior design by Juanna Shwaihat — art, fashion and architecture brought into one room at a time.</p>
       <a class="btn btn--light" href="#contact">Book a consult</a>
     </div>
   </section>
@@ -143,13 +142,39 @@
       <p>Tell me about your space, your timeline and how you want it to feel. I'll come back to you with the next step.</p>
 
       <div class="contact__lines">
-        <span><a href="mailto:Shwaihatjuanna@gmail.com">Shwaihatjuanna@gmail.com</a></span>
+        <span><a href="#contactcard" data-contact>Shwaihatjuanna@gmail.com</a></span>
         <span>Edmonton, Alberta, Canada</span>
       </div>
 
-      <a class="btn btn--light" href="mailto:Shwaihatjuanna@gmail.com?subject=Design%20enquiry%20via%20i4interiors.com">Start an enquiry</a>
+      <button class="btn btn--light" type="button" data-contact>Start an enquiry</button>
     </div>
   </section>
+
+<!-- ============ CONTACT CARD ============ -->
+<dialog class="card" id="contactcard" aria-labelledby="contactcard-title">
+  <div class="card__inner">
+    <button class="card__close" type="button" data-contact-close aria-label="Close">&times;</button>
+
+    <h2 class="display" id="contactcard-title">Contact the studio</h2>
+    <p>Send a note about your space, your timeline and how you want it to feel.</p>
+
+    <div class="card__rows">
+      <div class="card__row">
+        <span class="card__label">Email</span>
+        <span class="card__value" id="contact-email">Shwaihatjuanna@gmail.com</span>
+        <button class="card__copy" type="button" data-copy="#contact-email">Copy</button>
+      </div>
+      <div class="card__row">
+        <span class="card__label">Instagram</span>
+        <a class="card__value" href="https://www.instagram.com/i4interiors/" target="_blank" rel="noopener">@i4interiors</a>
+      </div>
+      <div class="card__row">
+        <span class="card__label">Studio</span>
+        <span class="card__value">Edmonton, Alberta, Canada</span>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 </main>
 
@@ -176,6 +201,71 @@
         nav.classList.remove('is-open');
         btn.setAttribute('aria-expanded', 'false');
       }
+    });
+  })();
+
+  // Contact card. Keeps the studio details on the page instead of
+  // handing the visitor off to a mail client.
+  (function () {
+    var card = document.getElementById('contactcard');
+    if (!card) return;
+
+    function open() {
+      if (card.showModal) card.showModal();
+      else card.setAttribute('open', '');
+    }
+    function close() {
+      if (card.close) card.close();
+      else card.removeAttribute('open');
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-contact]'), function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        open();
+      });
+    });
+
+    card.addEventListener('click', function (e) {
+      // A click that lands on the dialog itself came from the backdrop.
+      if (e.target === card || e.target.hasAttribute('data-contact-close')) close();
+    });
+
+    // Copy the address so it can be pasted wherever the visitor writes mail.
+    Array.prototype.forEach.call(card.querySelectorAll('[data-copy]'), function (btn) {
+      btn.addEventListener('click', function () {
+        var source = card.querySelector(btn.getAttribute('data-copy'));
+        if (!source) return;
+        var text = source.textContent.trim();
+
+        function done() {
+          var label = btn.textContent;
+          btn.textContent = 'Copied';
+          btn.classList.add('is-done');
+          setTimeout(function () {
+            btn.textContent = label;
+            btn.classList.remove('is-done');
+          }, 1800);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } else {
+          fallback();
+        }
+
+        function fallback() {
+          var field = document.createElement('textarea');
+          field.value = text;
+          field.setAttribute('readonly', '');
+          field.style.position = 'fixed';
+          field.style.opacity = '0';
+          document.body.appendChild(field);
+          field.select();
+          try { document.execCommand('copy'); done(); } catch (err) { /* selection stands */ }
+          document.body.removeChild(field);
+        }
+      });
     });
   })();
 </script>
